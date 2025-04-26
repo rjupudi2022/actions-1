@@ -1,0 +1,32 @@
+name: multiple_jobsorder_workflow
+
+on: push
+jobs:
+  build_job_1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install cowsay program
+      run: sudo apt-get install cowsay -y     
+
+    - name: Generate ASCII artworkf
+      run : cowsay -f dragon "run for cover, I am DRAGON ..RAWR" >> dragon.txt
+    - name: Sleep for 35 seconds
+      run: sleep 35
+  # jobs are runs on individual runners as there is specific reason we did segregation of tasks  execution
+  test_job_2:
+    needs: build_job_1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep for 15 seconds
+      run: sleep 15
+    - name: Test file exists or not
+      run: grep -i "dragon" dragon.txt
+  deploy_job_3:
+    #needs will assign jobs in sequential order based on depenency job name defined below section !
+    needs: test_job_2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Reads File
+      run: cat dragon.txt
+    - name: deployment 
+      run: echo "deployment in progress !!"                       
