@@ -1,0 +1,22 @@
+name: My second woirkflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+          
+        - name: List and Read file  
+          run: | 
+             echo "my first github action Job"
+             ls -ltra
+             cat README.md
+
+        - name: Generate ASCII artworkf
+          run : cowsay -f dragon "run for cover, I am DRAGON ..RAWR" >> dragon.txt
+
+
+              
