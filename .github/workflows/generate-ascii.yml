@@ -1,0 +1,21 @@
+name: My second woirkflow
+
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+        
+        - name: List repo Files
+          run: ls -ltra  
+          
+        - name: Executing shell script
+          run: ./ascii-script.sh
+
+                
+
+
+              
