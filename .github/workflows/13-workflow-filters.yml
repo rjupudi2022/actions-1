@@ -1,0 +1,24 @@
+# Lets talk about workflow events filters and activity types 
+# lets take example pull_request will have various Activity types closed;opened;assigned;locked;auto_merge_enabled;review_request_
+#https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+name: 13-workflow-filter
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - '!feature' # ignoring pushing to any branch name stating with feature using !
+  pull_request:
+    types:
+      - closed
+      - opened
+    paths-ignore:
+      - README.md  # workflow will only run when a pull request that includes a change on any file than README.md 
+    branches:
+      - main       # configuring your workflow to only run on pull requests that target specific branches 
+jobs:
+  print-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: printing workflow with event name
+      run:  echo this ${{ github.workflow }} ${{ github.job }} step  is executed for event type - ${{ github.event_name }}
