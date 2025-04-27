@@ -1,0 +1,32 @@
+name: 12-expression-if-example
+on:
+  workflow_dispatch:
+  push:
+###################### ENVIRONMENT VARIABLES at WORKFLOW LEVEL ####################################################
+env:
+    CONTAINER_REGISTRY: docker.io
+    DOCKER_USERNAME: dockerUsername
+    IMAGE_NAME: github-actions-nginx
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker build
+
+      run: echo  docker build -t docker.io/dockerUsername/$IMAGE_NAME:latest
+    - name: Docker login 
+      env: 
+        DOCKER_PASSWORD: demopassword
+      run:  echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+
+    - name: Docker publish
+      run:  echo docker push docker.io/$DOCKER_USERNAME/$IMAGE_NAME:latest       
+  deploy:
+    # you can refer https://github.com/rjupudi2022/actions-1/actions/runs/14693279852/job/41231529199#step:2:222
+    if: github.ref == 'ref/heads/main'
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker run
+      run: echo docker run -d -p 8080:8080 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+################# END OF VARIABLES USAGE OF WORKFLOW LEVEL##########################################    
