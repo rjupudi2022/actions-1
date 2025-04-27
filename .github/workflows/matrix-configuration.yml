@@ -1,0 +1,23 @@
+name: Matrix configuration
+
+on: 
+  push 
+  workflow_dispatch
+jobs:
+  deploy-on-ubuntu:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Echo Docker details
+      run: docker info
+
+    - name: Run Images
+      run: docker run hello-world  
+  deploy-on-windows:
+    runs-on: wundows-latest
+    steps:
+    - name: Echo Docker Details
+      run: docker info
+
+    - name: Run Images
+      run: docker run hello-world
+   
