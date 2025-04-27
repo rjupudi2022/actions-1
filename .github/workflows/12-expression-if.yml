@@ -1,4 +1,4 @@
-name: expression-if-example
+name: 12-expression-if-example
 on:
   workflow_dispatch:
   push:
