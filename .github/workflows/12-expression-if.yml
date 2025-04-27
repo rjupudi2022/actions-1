@@ -23,7 +23,7 @@ jobs:
       run:  echo docker push docker.io/$DOCKER_USERNAME/$IMAGE_NAME:latest       
   deploy:
     # you can refer https://github.com/rjupudi2022/actions-1/actions/runs/14693279852/job/41231529199#step:2:222
-    if: github.ref == 'ref/heads/main'
+    if: github.ref == 'refs/heads/main'
     needs: docker
     runs-on: ubuntu-latest
     steps:
