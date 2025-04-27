@@ -1,0 +1,5 @@
+#Contexts are a way to access information about workflow runs,variables,runner environments,jobs and steps.
+#Each context is an object thtat contain properties, which can be strings or other objects
+# Please refer below documentation 
+#https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs
+#https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#runner-context
