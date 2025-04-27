@@ -1,4 +1,4 @@
-name: multiple_jobs_workflow
+name: 04-multiple-jobs-workflow
 
 on: push
 jobs:

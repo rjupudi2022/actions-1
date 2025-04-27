@@ -1,4 +1,4 @@
-name: My First woirkflow
+name: 01-my-first-workflow
 
 on: push
 

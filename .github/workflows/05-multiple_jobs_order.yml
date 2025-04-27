@@ -1,4 +1,4 @@
-name: multiple_jobsorder_workflow
+name: 05-multiple_jobsorder_workflow
 
 on: push
 jobs:

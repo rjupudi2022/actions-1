@@ -1,4 +1,4 @@
-name: multiple_jobs_fix_workflow
+name: 06-multiple_jobs_fix_workflow
 
 on: push
 jobs:

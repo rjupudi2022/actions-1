@@ -1,4 +1,4 @@
-name: My second woirkflow
+name: 02-my-second-workflow
 
 on: push
 

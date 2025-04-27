@@ -1,4 +1,4 @@
-name: Matrix configuration
+name: 09-matrix-configuration
 
 on: 
   push:

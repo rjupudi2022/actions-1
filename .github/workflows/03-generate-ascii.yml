@@ -1,4 +1,4 @@
-name: ascii script workflow
+name: 03-ascii-script-workflow
 
 on: push
 
