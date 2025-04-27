@@ -22,3 +22,8 @@ jobs:
     steps:
     - name: printing workflow with event name
       run:  echo this ${{ github.workflow }} ${{ github.job }} step  is executed for event type - ${{ github.event_name }}
+
+#below examplesa are triggered for pull request open and closed
+# https://github.com/rjupudi2022/actions-1/actions/runs/14694457222
+#https://github.com/rjupudi2022/actions-1/actions/runs/14694463473
+      
